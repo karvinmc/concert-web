@@ -11,21 +11,32 @@
 </head>
 
 <body>
-    {{-- Navbar Section --}}
-    <div id="app">
-      <navbar/>
-    </div>
+  {{-- Navbar Section --}}
+  <div id="app">
+    <navbar />
+  </div>
 
-    {{-- Main Section --}}
-    <main>
-      @yield('content')
-    </main>
+  {{-- Main Section --}}
+  <main>
+    @yield('content')
+  </main>
 
-    {{-- Footer Section --}}
-    <footer>
-      {{-- TODO: Footer here --}}
-    </footer>
+  {{-- Footer Section --}}
+  <footer>
+    {{-- TODO: Footer here --}}
+  </footer>
 
 </body>
+
+<script>
+  window.Laravel = {
+    urls: {
+      home: "{{ url('/') }}",
+      concerts: "{{ url('/concerts') }}",
+      singer: "{{ url('/singer') }}",
+      login: "{{ url('/login') }}"
+    }
+  };
+</script>
 
 </html>
