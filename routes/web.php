@@ -10,8 +10,8 @@ Route::get('/concerts', function () {
   return view('concerts');
 });
 
-Route::get('/singer', function () {
-  return view('singer');
+Route::get('/singers', function () {
+  return view('singers');
 });
 
 Route::get('/login', function () {
