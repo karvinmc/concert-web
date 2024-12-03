@@ -374,4 +374,11 @@
     </div>
   </section>
 
+  {{-- Debug Carousel --}}
+  <section class="bg-white dark:bg-gray-900">
+    <div id="app" class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <swiper-carousel />
+    </div>
+  </section>
+
 @endsection
