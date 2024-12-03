@@ -195,84 +195,11 @@
           Explore nearby concerts and events here.
         </p>
       </div>
-      <div class="grid gap-8 lg:gap-12 sm:grid-cols-2 lg:grid-cols-3">
-        {{-- Item 1 --}}
-        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg">
-            <img class="rounded-t-lg w-full" src="{{ asset('images/singers/taylor_swift.jpg') }}"
-              alt="Concert Image" />
-          </div>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Taylor Swift
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Date - Date, Location
-            </p>
-            <p class="mb-3 font-bold text-lg text-gray-700 dark:text-gray-400">
-              Price
-            </p>
-            <a href="#"
-              class="inline-flex justify-center w-full px-3 py-3 text-sm font-medium text-center text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-              Book Now
-            </a>
-          </div>
-        </div>
-        {{-- Item 2 --}}
-        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg">
-            <img class="rounded-t-lg w-full" src="{{ asset('images/singers/taylor_swift.jpg') }}"
-              alt="Concert Image" />
-          </div>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Taylor Swift
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Date - Date, Location
-            </p>
-            <p class="mb-3 font-bold text-lg text-gray-700 dark:text-gray-400">
-              Price
-            </p>
-            <a href="#"
-              class="inline-flex justify-center w-full px-3 py-3 text-sm font-medium text-center text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-              Book Now
-            </a>
-          </div>
-        </div>
-        {{-- Item 3 --}}
-        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg">
-            <img class="rounded-t-lg w-full" src="{{ asset('images/singers/taylor_swift.jpg') }}"
-              alt="Concert Image" />
-          </div>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Taylor Swift
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Date - Date, Location
-            </p>
-            <p class="mb-3 font-bold text-lg text-gray-700 dark:text-gray-400">
-              Price
-            </p>
-            <a href="#"
-              class="inline-flex justify-center w-full px-3 py-3 text-sm font-medium text-center text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-              Book Now
-            </a>
-          </div>
-        </div>
-      </div>
+      <swiper-nearby />
     </div>
   </section>
 
-  {{-- Buy Tickets Section --}}
+  {{-- Buy Ticket Section --}}
   <section class="bg-gray-50 dark:bg-gray-900">
     <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
       <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
@@ -309,76 +236,12 @@
           The best concerts will be held soon!
         </p>
       </div>
-      <div class="grid gap-8 lg:gap-12 sm:grid-cols-2 lg:grid-cols-3">
-        {{-- Item 1 --}}
-        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg">
-            <img class="rounded-t-lg w-full" src="{{ asset('images/singers/taylor_swift.jpg') }}"
-              alt="Concert Image" />
-            <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-              <h2 class="text-white text-2xl font-bold">Coming Soon</h2>
-            </div>
-          </div>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Taylor Swift
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Date - Date, Location
-            </p>
-          </div>
-        </div>
-        {{-- Item 2 --}}
-        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg">
-            <img class="rounded-t-lg w-full" src="{{ asset('images/singers/taylor_swift.jpg') }}"
-              alt="Concert Image" />
-            <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-              <h2 class="text-white text-2xl font-bold">Coming Soon</h2>
-            </div>
-          </div>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Taylor Swift
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Date - Date, Location
-            </p>
-          </div>
-        </div>
-        {{-- Item 3 --}}
-        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg">
-            <img class="rounded-t-lg w-full" src="{{ asset('images/singers/taylor_swift.jpg') }}"
-              alt="Concert Image" />
-            <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-              <h2 class="text-white text-2xl font-bold">Coming Soon</h2>
-            </div>
-          </div>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Taylor Swift
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Date - Date, Location
-            </p>
-          </div>
-        </div>
-      </div>
+      <swiper-upcoming />
+    </div>
     </div>
   </section>
 
-  {{-- Debug Carousel --}}
-  <section class="bg-white dark:bg-gray-900">
-    <div id="app" class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-      <swiper-carousel />
-    </div>
-  </section>
-
+  <script>
+    window.assetUrl = '{{ asset('images/singers/taylor_swift.jpg') }}';
+  </script>
 @endsection

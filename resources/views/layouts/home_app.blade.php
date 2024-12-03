@@ -12,7 +12,7 @@
 
 <body>
   {{-- Main Section --}}
-  <main>
+  <main id="app">
     @yield('content')
   </main>
 
