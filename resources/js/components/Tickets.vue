@@ -1,7 +1,7 @@
 <template>
-  <a href="" class="grid grid-cols-1 lg:grid-cols-2 gap-6"> <!-- 2 Columns Layout -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"> <!-- 2 Columns Layout -->
     <!-- Card Loop -->
-    <div v-for="(item, index) in items" :key="index"
+    <a :href="pageUrl" v-for="(item, index) in items" :key="index"
       class="flex border-2 border-gray-200 hover:border-primary-700 rounded-lg dark:bg-gray-800 dark:border-gray-700">
       <!-- Left Side -->
       <div class="bg-primary-600 text-white flex flex-col items-center justify-center w-1/3 p-4 rounded-l-lg">
@@ -43,8 +43,8 @@
           <p>${{ item.price }} / pax</p>
         </div>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
 </template>
 
 <script>
@@ -83,7 +83,10 @@ export default {
       },
     ];
 
-    return { items };
+    return {
+      pageUrl: window.pageUrl,
+      items
+    };
   },
 };
 </script>

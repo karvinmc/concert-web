@@ -6,6 +6,7 @@ import SwiperNearby from "./components/SwiperNearby.vue";
 import Concerts from "./components/Concerts.vue";
 import Singers from "./components/Singers.vue";
 import Tickets from "./components/Tickets.vue";
+import Seat from "./components/Seat.vue";
 
 const app = createApp();
 
@@ -14,5 +15,6 @@ app.component("swiper-nearby", SwiperNearby);
 app.component("concerts", Concerts);
 app.component("singers", Singers);
 app.component("tickets", Tickets);
+app.component("seat", Seat);
 
 app.mount("#app");

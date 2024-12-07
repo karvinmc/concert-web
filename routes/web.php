@@ -26,3 +26,7 @@ Route::get('/register', function () {
 Route::get('/concert_detail', function () {
   return view('concert_detail');
 });
+
+Route::get('/seat', function () {
+  return view('seat');
+});
