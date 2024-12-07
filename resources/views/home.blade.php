@@ -217,10 +217,27 @@
         </a>
       </div>
       <div class="grid grid-cols-3 gap-4 mt-8">
-        <img class="w-full rounded-lg shadow" src="{{ asset('images/choose.png') }}" alt="office content 1">
+        <img class="w-full rounded-lg shadow" src="{{ asset('images/choose.png') }}" alt="office content 1"
+          data-tooltip-target="tooltip-choose" data-tooltip-placement="bottom">
+        <div id="tooltip-choose" role="tooltip"
+          class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+          1. Choose a concert!
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
         <img class="mt-4 w-full lg:mt-10 rounded-lg shadow" src="{{ asset('images/choose date.png') }}"
-          alt="office content 2">
-        <img class="w-full rounded-lg shadow" src="{{ asset('images/pay.png') }}" alt="office content 1">
+          alt="office content 2" data-tooltip-target="tooltip-date" data-tooltip-placement="top">
+        <div id="tooltip-date" role="tooltip"
+          class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+          2. Select time & date!
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <img class="w-full rounded-lg shadow" src="{{ asset('images/pay.png') }}" alt="office content 1"
+          data-tooltip-target="tooltip-pay" data-tooltip-placement="bottom">
+        <div id="tooltip-pay" role="tooltip"
+          class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+          3. Pay your bill!
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
       </div>
     </div>
   </section>

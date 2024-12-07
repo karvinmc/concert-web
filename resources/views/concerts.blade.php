@@ -22,5 +22,6 @@
 
   <script>
     window.assetUrl = '{{ asset('images/singers/taylor_swift.jpg') }}';
+    window.pageUrl = '{{ url('concert_detail') }}';
   </script>
 @endsection
