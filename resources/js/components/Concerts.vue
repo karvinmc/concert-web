@@ -15,9 +15,6 @@
         <p class="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
           {{ item.date }}, {{ item.location }}
         </p>
-        <p class="mb-3 font-bold text-gray-700 dark:text-gray-400">
-          {{ item.price }}
-        </p>
         <a href="#"
           class="inline-flex justify-center w-full px-3 py-3 text-sm font-medium text-center text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
           View Details
@@ -32,10 +29,10 @@ export default {
   setup() {
     // Example data for slides
     const items = [
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location', price: 'Price' },
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location', price: 'Price' },
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location', price: 'Price' },
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location', price: 'Price' },
+      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location' },
+      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location' },
+      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location' },
+      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location' },
     ];
 
     return {

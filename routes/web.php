@@ -21,3 +21,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
   return view('register');
 });
+
+
+Route::get('/concert_detail', function () {
+  return view('concert_detail');
+});
