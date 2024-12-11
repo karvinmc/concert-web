@@ -30,3 +30,8 @@ Route::get('/concert_detail', function () {
 Route::get('/seat', function () {
   return view('seat');
 });
+
+// Admin
+Route::get('/admin/dashboard', function () {
+  return view('admin.dashboard');
+});
