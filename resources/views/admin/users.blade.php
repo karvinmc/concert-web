@@ -64,7 +64,7 @@
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       1
                     </th>
-                    <td class="px-6 py-4 text-tranform: capitalize">
+                    <td class="px-6 py-4 text-transform: capitalize">
                       dave
                     </td>
                     <td class="px-6 py-4">
@@ -85,13 +85,14 @@
                   </tr>
                 </tbody>
               </table>
-              <!-- Edit modal -->
+
+              {{-- Edit modal start --}}
               <div id="editUsersModal" tabindex="-1" aria-hidden="true"
                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                 <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-                  <!-- Edit content -->
+                  {{-- Modal content --}}
                   <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
-                    <!-- Edit header -->
+                    {{-- Modal header --}}
                     <div
                       class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                       <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -109,7 +110,7 @@
                         <span class="sr-only">Close modal</span>
                       </button>
                     </div>
-                    <!-- Edit body -->
+                    {{-- Edit body --}}
                     <form action="#">
                       <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
@@ -158,8 +159,9 @@
                   </div>
                 </div>
               </div>
+              {{-- Edit modal start --}}
 
-              {{-- Delete modal --}}
+              {{-- Delete modal start --}}
               <div id="deleteModal" tabindex="-1" aria-hidden="true"
                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                 <div class="relative p-4 w-full max-w-md h-full md:h-auto">
@@ -196,24 +198,27 @@
                   </div>
                 </div>
               </div>
+              {{-- Delete modal end --}}
+
             </div>
           </div>
           <div class="flex items-center justify-end rounded bg-white dark:bg-gray-800">
             <div class="flex justify-center">
-              <!-- Add toggle -->
+              {{-- Add toggle --}}
               <button id="usersModalButton" data-modal-target="usersModal" data-modal-toggle="usersModal"
                 class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 type="button">
-                Add a User
+                Add a user
               </button>
             </div>
-            <!-- Add modal -->
+
+            {{-- Add modal start --}}
             <div id="usersModal" tabindex="-1" aria-hidden="true"
               class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
               <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-                <!-- Add content -->
+                {{-- Modal content --}}
                 <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
-                  <!-- Add header -->
+                  {{-- Modal header --}}
                   <div
                     class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -231,7 +236,7 @@
                       <span class="sr-only">Close modal</span>
                     </button>
                   </div>
-                  <!-- Modal body -->
+                  {{-- Add body --}}
                   <form action="#">
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                       <div>
@@ -280,6 +285,8 @@
                 </div>
               </div>
             </div>
+            {{-- Add modal end --}}
+
           </div>
         </div>
       </div>

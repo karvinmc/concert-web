@@ -47,3 +47,11 @@ Route::get('/admin/concerts', function () {
 Route::get('/admin/singers', function () {
   return view('admin.singers');
 });
+
+Route::get('/admin/tickets', function () {
+  return view('admin.tickets');
+});
+
+Route::get('/admin/bookings', function () {
+  return view('admin.bookings');
+});
