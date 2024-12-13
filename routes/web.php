@@ -35,3 +35,15 @@ Route::get('/seat', function () {
 Route::get('/admin/dashboard', function () {
   return view('admin.dashboard');
 });
+
+Route::get('/admin/users', function () {
+  return view('admin.users');
+});
+
+Route::get('/admin/concerts', function () {
+  return view('admin.concerts');
+});
+
+Route::get('/admin/singers', function () {
+  return view('admin.singers');
+});

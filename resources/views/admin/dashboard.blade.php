@@ -1,6 +1,8 @@
 @extends('admin.layouts.admin_app')
 @section('title', 'Dashboard')
 
+{{-- TODO: Dashboard yang menampilkan jumlah count untuk masing-masing tabel--}}
+
 @section('content')
   <section class="bg-white">
     <div class="p-4 sm:ml-64">

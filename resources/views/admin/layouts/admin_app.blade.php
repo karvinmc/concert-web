@@ -62,12 +62,7 @@
                 </div>
                 <ul class="py-1" role="none">
                   <li>
-                    <a href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem">Settings</a>
-                  </li>
-                  <li>
-                    <a href="#"
+                    <a href="{{ url('/') }}"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                       role="menuitem">Sign out</a>
                   </li>
@@ -85,38 +80,38 @@
       <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
         <ul class="space-y-2 font-medium">
           <li>
-            <a href="#"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ url('admin/dashboard') }}"
+              class="flex items-center p-2 rounded-lg group {{ request()->is('admin/dashboard') ? 'bg-gray-100 dark:bg-gray-700' : 'hover:bg-gray-100 dark:hover:bg-gray-700' }}">
               <svg
-                class="w-[24px] h-[24px] text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                class="w-[24px] h-[24px] transition duration-75 {{ request()->is('admin/dashboard') ? 'text-gray-900 dark:text-white' : 'text-gray-400 group-hover:text-gray-800' }}"
                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                 viewBox="0 0 24 24">
                 <path
                   d="M13.5 2c-.178 0-.356.013-.492.022l-.074.005a1 1 0 0 0-.934.998V11a1 1 0 0 0 1 1h7.975a1 1 0 0 0 .998-.934l.005-.074A7.04 7.04 0 0 0 22 10.5 8.5 8.5 0 0 0 13.5 2Z" />
                 <path d="M11 6.025a1 1 0 0 0-1.065-.998 8.5 8.5 0 1 0 9.038 9.039A1 1 0 0 0 17.975 13H11V6.025Z" />
               </svg>
-              <span class="ms-3">Dashboard</span>
+              <span
+                class="ms-3 {{ request()->is('admin/dashboard') ? 'text-black dark:text-white' : 'text-black' }}">Dashboard</span>
             </a>
           </li>
           <li>
-            <a href="#"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ url('admin/users') }}"
+              class="flex items-center p-2 rounded-lg group {{ request()->is('admin/users') ? 'bg-gray-100 dark:bg-gray-700' : 'hover:bg-gray-100 dark:hover:bg-gray-700' }}">
               <svg
-                class="w-[24px] h-[24px] text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                viewBox="0 0 24 24">
+                class="w-[24px] h-[24px] transition duration-75 {{ request()->is('admin/users') ? 'text-gray-900 dark:text-white' : 'text-gray-400 group-hover:text-gray-800' }}"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd"
                   d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H6Zm7.25-2.095c.478-.86.75-1.85.75-2.905a5.973 5.973 0 0 0-.75-2.906 4 4 0 1 1 0 5.811ZM15.466 20c.34-.588.535-1.271.535-2v-1a5.978 5.978 0 0 0-1.528-4H18a4 4 0 0 1 4 4v1a2 2 0 0 1-2 2h-4.535Z"
                   clip-rule="evenodd" />
               </svg>
-              <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
+              <span class="ms-3">Users</span>
             </a>
           </li>
           <li>
-            <a href="#"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ url('admin/concerts') }}"
+              class="flex items-center p-2 rounded-lg group {{ request()->is('admin/concerts') ? 'bg-gray-100 dark:bg-gray-700' : 'hover:bg-gray-100 dark:hover:bg-gray-700' }}">
               <svg
-                class="w-[24px] h-[24px] text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                class="w-[24px] h-[24px] transition duration-75 {{ request()->is('admin/concerts') ? 'text-gray-900 dark:text-white' : 'text-gray-400 group-hover:text-gray-800' }}"
                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                 viewBox="0 0 24 24">
                 <path fill-rule="evenodd"
@@ -127,10 +122,10 @@
             </a>
           </li>
           <li>
-            <a href="#"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ url('admin/singers') }}"
+              class="flex items-center p-2 rounded-lg group {{ request()->is('admin/singers') ? 'bg-gray-100 dark:bg-gray-700' : 'hover:bg-gray-100 dark:hover:bg-gray-700' }}">
               <svg
-                class="w-[24px] h-[24px] text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                class="w-[24px] h-[24px] transition duration-75 {{ request()->is('admin/singers') ? 'text-gray-900 dark:text-white' : 'text-gray-400 group-hover:text-gray-800' }}"
                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd"
@@ -142,10 +137,10 @@
             </a>
           </li>
           <li>
-            <a href="#"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ url('admin/tickets') }}"
+              class="flex items-center p-2 rounded-lg group {{ request()->is('admin/tickets') ? 'bg-gray-100 dark:bg-gray-700' : 'hover:bg-gray-100 dark:hover:bg-gray-700' }}">
               <svg
-                class="w-[24px] h-[24px] text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                class="w-[24px] h-[24px] transition duration-75 {{ request()->is('admin/tickets') ? 'text-gray-900 dark:text-white' : 'text-gray-400 group-hover:text-gray-800' }}"
                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -155,10 +150,10 @@
             </a>
           </li>
           <li>
-            <a href="#"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ url('admin/bookings') }}"
+              class="flex items-center p-2 rounded-lg group {{ request()->is('admin/bookings') ? 'bg-gray-100 dark:bg-gray-700' : 'hover:bg-gray-100 dark:hover:bg-gray-700' }}">
               <svg
-                class="w-[24px] h-[24px] text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                class="w-[24px] h-[24px] transition duration-75 {{ request()->is('admin/bookings') ? 'text-gray-900 dark:text-white' : 'text-gray-400 group-hover:text-gray-800' }}"
                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd"
