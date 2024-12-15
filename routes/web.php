@@ -22,7 +22,6 @@ Route::get('/register', function () {
   return view('register');
 });
 
-
 Route::get('/concert_detail', function () {
   return view('concert_detail');
 });
@@ -32,26 +31,28 @@ Route::get('/seat', function () {
 });
 
 // Admin
-Route::get('/admin/dashboard', function () {
-  return view('admin.dashboard');
-});
+Route::prefix('admin')->group(function () {
+  Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+  });
 
-Route::get('/admin/users', function () {
-  return view('admin.users');
-});
+  Route::get('/users', function () {
+    return view('admin.users');
+  });
 
-Route::get('/admin/concerts', function () {
-  return view('admin.concerts');
-});
+  Route::get('/concerts', function () {
+    return view('admin.concerts');
+  });
 
-Route::get('/admin/singers', function () {
-  return view('admin.singers');
-});
+  Route::get('/singers', function () {
+    return view('admin.singers');
+  });
 
-Route::get('/admin/tickets', function () {
-  return view('admin.tickets');
-});
+  Route::get('/tickets', function () {
+    return view('admin.tickets');
+  });
 
-Route::get('/admin/bookings', function () {
-  return view('admin.bookings');
+  Route::get('/bookings', function () {
+    return view('admin.bookings');
+  });
 });
