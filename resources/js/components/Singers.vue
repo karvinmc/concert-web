@@ -9,7 +9,7 @@
       <div class="p-4">
         <a href="#">
           <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {{ item.title }}
+            {{ item.name }}
           </h5>
         </a>
         <a href="#"
@@ -24,16 +24,11 @@
 <script>
 export default {
   setup() {
-    // Example data for slides
-    const items = [
-      { title: 'Taylor Swift' },
-      { title: 'Taylor Swift' },
-      { title: 'Taylor Swift' },
-      { title: 'Taylor Swift' },
-    ];
+    const items = window.cardItems || [];
 
     return {
       assetUrl: window.assetUrl,
+      pageUrl: window.pageUrl,
       items
     };
   },
