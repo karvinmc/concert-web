@@ -3,6 +3,8 @@
 use App\Http\Controllers\singersController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Concert;
+use App\Models\Singer;
+
 
 Route::get('/', function () {
   return view('home');
@@ -28,7 +30,20 @@ Route::get('/concerts', function () {
 });
 
 Route::get('/singers', function () {
-  return view('singers');
+  // Fetch all singers
+  $singers = Singer::all();
+
+  // Map singers to match the desired structure
+  $singerCards = $singers->map(function ($singer) {
+      return [
+          'name' => $singer->name,
+          'profile' => $singer->profile,
+          'image' => asset('images/singers/default_image.jpg'), // Replace with actual image path if stored
+      ];
+  });
+
+  // Return view with singer data
+  return view('singers', ['singerCards' => $singerCards]);
 });
 
 Route::get('/login', function () {
