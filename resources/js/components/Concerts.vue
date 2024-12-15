@@ -1,9 +1,9 @@
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"> <!-- Adjusted to 4 columns on larger screens -->
-    <!-- Swiper Slides -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Loop through items to create a card for each concert -->
     <div v-for="(item, index) in items" :key="index"
       class="bg-white border shadow-md border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
-      <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg"> <!-- Increased height -->
+      <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg">
         <img class="rounded-t-lg w-full h-full object-cover" :src="assetUrl" alt="Concert Image" />
       </div>
       <div class="p-5">
@@ -12,6 +12,9 @@
             {{ item.title }}
           </h5>
         </a>
+        <p class="mb-3 text-md font-normal text-gray-700 dark:text-gray-400">
+          {{ item.singer }}
+        </p>
         <p class="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
           {{ item.date }}, {{ item.location }}
         </p>
@@ -27,13 +30,7 @@
 <script>
 export default {
   setup() {
-    // Example data for slides
-    const items = [
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location' },
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location' },
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location' },
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location' },
-    ];
+    const items = window.cardItems || [];
 
     return {
       assetUrl: window.assetUrl,

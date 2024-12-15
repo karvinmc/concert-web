@@ -23,5 +23,6 @@
   <script>
     window.assetUrl = '{{ asset('images/singers/taylor_swift.jpg') }}';
     window.pageUrl = '{{ url('concert_detail') }}';
+    window.cardItems = @json($concertCard);
   </script>
 @endsection

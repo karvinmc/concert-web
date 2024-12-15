@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\singersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,7 +8,16 @@ Route::get('/', function () {
 });
 
 Route::get('/concerts', function () {
-  return view('concerts');
+  $concertCard = [
+    [
+      'concertName' => 'The Eras Tour',
+      'singer' => 'Taylor Swift',
+      'date' => 'date',
+      'location' => 'location',
+    ]
+  ];
+
+  return view('concerts', ['concertCard' => $concertCard]);
 });
 
 Route::get('/singers', function () {
@@ -32,6 +42,7 @@ Route::get('/seat', function () {
 
 // Admin
 Route::prefix('admin')->group(function () {
+  // Get
   Route::get('/dashboard', function () {
     return view('admin.dashboard');
   });
@@ -55,4 +66,7 @@ Route::prefix('admin')->group(function () {
   Route::get('/bookings', function () {
     return view('admin.bookings');
   });
+
+  // Resource
+  Route::resource('/singers', singersController::class);
 });
