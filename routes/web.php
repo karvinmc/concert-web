@@ -55,9 +55,7 @@ Route::prefix('admin')->group(function () {
     return view('admin.concerts');
   });
 
-  Route::get('/singers', function () {
-    return view('admin.singers');
-  });
+  Route::resource('/singers', singersController::class);
 
   Route::get('/tickets', function () {
     return view('admin.tickets');
@@ -66,7 +64,4 @@ Route::prefix('admin')->group(function () {
   Route::get('/bookings', function () {
     return view('admin.bookings');
   });
-
-  // Resource
-  Route::resource('/singers', singersController::class);
 });
