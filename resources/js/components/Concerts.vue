@@ -9,7 +9,7 @@
       <div class="p-5">
         <a href="#">
           <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {{ item.title }}
+            {{ item.concertName }}
           </h5>
         </a>
         <p class="mb-3 text-md font-normal text-gray-700 dark:text-gray-400">
