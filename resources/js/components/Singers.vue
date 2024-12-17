@@ -4,10 +4,10 @@
     <div v-for="(item, index) in items" :key="index"
       class="bg-white border shadow-md border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
       <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg"> <!-- Adjusted height -->
-        <img class="rounded-t-lg w-full h-full object-cover" :src="assetUrl" alt="Concert Image" />
+        <img class="rounded-t-lg w-full h-full object-cover" :src="item.singerImage" :alt="item.name" />
       </div>
       <div class="p-4">
-        <a href="#">
+        <a>
           <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
             {{ item.name }}
           </h5>
@@ -23,13 +23,11 @@
 
 <script>
 export default {
-  setup() {
-    const items = window.cardItems || [];
-
+  name: "Singers",
+  data() {
     return {
-      assetUrl: window.assetUrl,
-      pageUrl: window.pageUrl,
-      items
+      // Use global cardItems data
+      items: window.cardItems || [],
     };
   },
 };

@@ -21,7 +21,6 @@
   </section>
 
   <script>
-    window.assetUrl = '{{ asset('images/singers/taylor_swift.jpg') }}';
     window.cardItems = @json($singerCards);
 
   </script>

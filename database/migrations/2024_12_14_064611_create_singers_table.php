@@ -15,6 +15,7 @@ return new class extends Migration
       $table->id();
       $table->string('name')->index();
       $table->text('profile');
+      $table->string('image_path')->nullable();
       $table->timestamps();
     });
   }

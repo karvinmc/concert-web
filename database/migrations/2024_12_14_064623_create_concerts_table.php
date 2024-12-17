@@ -20,6 +20,7 @@ return new class extends Migration
       $table->time('time');
       $table->string('location', 255)->index();
       $table->decimal('default_price', 10, 2)->default(0);
+      $table->string('image_path')->nullable();
       $table->timestamps();
     });
   }

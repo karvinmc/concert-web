@@ -8,25 +8,28 @@ use App\Models\Singer;
 
 class Concert extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    // Specify the table name if not standard plural form
-    protected $table = 'concerts';
+  protected $table = 'concerts';
 
-    // Fields that can be mass assigned
-    protected $fillable = [
-        'singer_id',
-        'name',
-        'description',
-        'date',
-        'time',
-        'location',
-        'default_price',
-    ];
+  protected $fillable = [
+    'singer_id',
+    'name',
+    'description',
+    'date',
+    'time',
+    'location',
+    'default_price',
+    'image_path',
+  ];
 
-    // Relationship: A concert belongs to a singer
-    public function singer()
-    {
-        return $this->belongsTo(Singer::class, 'singer_id');
-    }
+  public function singer()
+  {
+    return $this->belongsTo(Singer::class, 'singer_id');
+  }
+
+  public function ticket()
+  {
+    return $this->hasMany(Ticket::class, 'concert_id');
+  }
 }

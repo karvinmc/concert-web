@@ -7,19 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Singer extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $table = 'singers';
+  protected $table = 'singers';
 
-    // Fields that are mass assignable
-    protected $fillable = [
-        'name',
-        'profile',
-    ];
+  protected $fillable = [
+    'name',
+    'profile',
+    'image_path',
+  ];
 
-    // Relationship: A singer has many concerts
-    public function concerts()
-    {
-        return $this->hasMany(Concert::class, 'singer_id');
-    }
+  public function concerts()
+  {
+    return $this->hasMany(Concert::class, 'singer_id');
+  }
 }
