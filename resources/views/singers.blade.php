@@ -22,6 +22,5 @@
 
   <script>
     window.cardItems = @json($singerCards);
-
   </script>
 @endsection
