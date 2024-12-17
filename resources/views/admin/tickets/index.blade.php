@@ -1,64 +1,70 @@
 @extends('admin.layouts.admin_app')
-@section('title', 'Singers')
+@section('title', 'Tickets')
 
 @section('content')
   <section class="bg-white">
     <div class="p-4 sm:ml-64">
       <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-        @include('admin.components.alerts')
         <div class="grid grid-cols-1 gap-4 mb-4">
           <div class="flex items-center justify-start">
             <div class="relative w-full overflow-x-auto">
-              <h2 class="font-bold text-2xl">Singers Table</h2>
+              <h2 class="font-bold text-2xl">Tickets Table</h2>
             </div>
           </div>
           <div class="flex items-center justify-center min-h-48 rounded bg-white dark:bg-gray-800">
             <div class="relative w-full overflow-x-auto shadow-md sm:rounded-lg">
-              <table class="w-full min-w-[1000px] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" class="px-6 py-3">
-                      Singer ID
+                      Ticket ID
                     </th>
                     <th scope="col" class="px-6 py-3">
-                      Name
+                      Concert
                     </th>
                     <th scope="col" class="px-6 py-3">
-                      Profile
+                      Concert Date
                     </th>
                     <th scope="col" class="px-6 py-3">
-                      Image
+                      Time
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Price
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Seats
                     </th>
                     <th scope="col" class="px-6 py-3">
                       <span class="sr-only">Edit</span>
                     </th>
                   </tr>
                 </thead>
-                <tbody id="singersTable">
+                <tbody>
 
-                  @foreach ($singers as $singer)
+                  @foreach ($tickets as $ticket)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                       <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $singer->id }}
+                        {{ $ticket->id }}
                       </th>
                       <td class="px-6 py-4 text-transform: capitalize">
-                        {{ $singer->name }}
+                        {{ $ticket->concert->name }}
+                      </td>
+                      <td class="px-6 py-4 text-transform: capitalize">
+                        {{ $ticket->concert->date }}
+                      </td>
+                      <td class="px-6 py-4 text-transform: uppercase">
+                        {{ $ticket->time }}
+                      </td>
+                      <td class="px-6 py-4 text-transform: uppercase">
+                        ${{ $ticket->price }}
                       </td>
                       <td class="px-6 py-4">
-                        <div class="w-[350px] h-[80px] overflow-y-auto">
-                          <p>{{ $singer->profile }} </p>
-                        </div>
-                      </td>
-                      <td class="px-6 py-4">
-                        <div class="overflow-hidden">
-                          <img class="object-cover w-[100px] h-[100px]"
-                               src="{{ asset('storage/' . $singer->image_path) }}" alt="Singer Image" class="w-full h-auto">
-                        </div>
+                        {{ $ticket->seats }}
                       </td>
                       <td class="px-6 py-4 text-right">
-                        <a id="editButton" href="{{ url('admin/singers/' . $singer->id . '/edit') }}"
+                        <a id="editButton" href="{{ url('admin/tickets/' . $ticket->id . '/edit') }}"
                            class="px-4 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        <button type="button" data-modal-target="deleteModal" data-singer-id="{{ $singer->id }}"
+                        <button type="button" data-modal-target="deleteModal" data-ticket-id="{{ $ticket->id }}"
                                 data-modal-toggle="deleteModal"
                                 class="delete-button font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
                       </td>
@@ -71,15 +77,15 @@
           </div>
           <div class="flex items-center justify-end rounded bg-white dark:bg-gray-800">
             <div class="flex justify-center">
-              {{-- Modal toggle --}}
+              {{-- Add toggle --}}
               <button id="addButton" data-modal-target="addModal" data-modal-toggle="addModal"
                       class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                       type="button">
-                Add a singer
+                Add a ticket
               </button>
             </div>
 
-            {{-- Modal start --}}
+            {{-- Add modal start --}}
             <div id="addModal" tabindex="-1" aria-hidden="true"
                  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
               <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
@@ -88,8 +94,8 @@
                   {{-- Modal header --}}
                   <div
                        class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-                    <h3 id="modalTitle" class="text-lg font-semibold text-gray-900 dark:text-white">
-                      Add Singer
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                      Add Ticket
                     </h3>
                     <button type="button"
                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -104,29 +110,53 @@
                     </button>
                   </div>
                   {{-- Modal body --}}
-                  <form method="POST" enctype="multipart/form-data">
+                  <form method="POST">
                     @csrf
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                       <div>
-                        <label for="singerName"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                        <input type="text" name="singerName" id="singerName"
-                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                               placeholder="Type singer name" required="">
-                      </div>
-                      <div class="sm:col-span-2">
-                        <label for="singerProfile"
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Profile</label>
-                        <textarea name="singerProfile" id="singerProfile" rows="4"
-                                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:blue-primary-500"
-                                  placeholder="Write singer profile here" required=""></textarea>
+                        <label for="concertID"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Concert</label>
+                        <select id="concertID" name="concertID"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required="">
+                          <option selected="">Select a concert</option>
+
+                          @foreach ($concerts as $concert)
+                            <option class="text-transform: capitalize" value="{{ $concert->id }}">{{ $concert->name }}</option>
+                          @endforeach
+
+                        </select>
                       </div>
                       <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                               for="file_input">Upload image</label>
-                        <input
-                               class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                               id="imagePath" name="imagePath" type="file">
+                        <label for="time"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Time</label>
+                        <div class="relative">
+                          <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                              <path fill-rule="evenodd"
+                                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                          </div>
+                          <input type="time" id="time" name="time"
+                                 class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                 min="00:00" max="23:59" value="00:00" required />
+                        </div>
+                      </div>
+                      <div>
+                        <label for="price"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ticket Price</label>
+                        <input type="number" name="price" id="price"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               placeholder="$" required="">
+                      </div>
+                      <div>
+                        <label for="seats"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seats</label>
+                        <input type="text" name="seats" id="seats"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               placeholder="Type remaining seats" required="">
                       </div>
                     </div>
                     <button type="submit"
@@ -137,13 +167,13 @@
                               d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                               clip-rule="evenodd"></path>
                       </svg>
-                      Add new singer
+                      Add new ticket
                     </button>
                   </form>
                 </div>
               </div>
             </div>
-            {{-- Modal end --}}
+            {{-- Add modal end --}}
 
             {{-- Delete modal start --}}
             <div id="deleteModal" tabindex="-1"
@@ -168,7 +198,7 @@
                     </svg>
                     <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete
                       this product?</h3>
-                    <form method="POST" action="{{ url('admin/singers/' . $singer->id) }}" class="inline">
+                    <form method="POST" action="{{ url('admin/tickets/' . $ticket->id) }}" class="inline">
                       @csrf
                       @method('DELETE')
                       <button id="confirm" data-modal-hide="deleteModal" type="submit"
@@ -201,8 +231,8 @@
       // Attach click event listener to each delete button
       deleteButtons.each(function() {
         $(this).on('click', function() {
-          const singerId = $(this).data('singer-id'); // Get the singer's ID using jQuery's .data()
-          const deleteUrl = `{{ url('admin/singers') }}/${singerId}`; // Build the dynamic URL
+          const ticketId = $(this).data('ticket-id'); // Get the singer's ID using jQuery's .data()
+          const deleteUrl = `{{ url('admin/tickets') }}/${ticketId}`; // Build the dynamic URL
 
           deleteForm.attr('action', deleteUrl);
         });

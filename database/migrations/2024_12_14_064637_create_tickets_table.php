@@ -14,9 +14,9 @@ return new class extends Migration
     Schema::create('tickets', function (Blueprint $table) {
       $table->id();
       $table->foreignId('concert_id')->constrained('concerts')->cascadeOnDelete();
-      $table->string('seat_number', 5);
-      $table->tinyInteger('status')->default(1);
+      $table->time('time');
       $table->decimal('price', 10, 2)->default(0);
+      $table->integer('seats')->default(0);
       $table->timestamps();
     });
   }

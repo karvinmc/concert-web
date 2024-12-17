@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+
 use App\Models\Singer;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -57,7 +59,6 @@ class singersController extends Controller
     $singer = Singer::findOrFail($id);
     return view('admin.singers.edit')->with('singer', $singer);
   }
-
 
   /**
    * Update the specified resource in storage.

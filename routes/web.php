@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\concertsController;
 use App\Http\Controllers\singersController;
-use App\Http\Controllers\test;
+use App\Http\Controllers\ticketController;
+use App\Http\Controllers\bookingController;
+use App\Http\Controllers\usersController;
 use Illuminate\Support\Facades\Route;
+
 use App\Models\Concert;
 use App\Models\Singer;
 
@@ -12,39 +16,18 @@ Route::get('/', function () {
 });
 
 Route::get('/concerts', function () {
-  // Fetch all concerts with singer data
-  $concerts = Concert::with('singer')->get();
+  // Fetch all concerts with singer data, ordered by date
+  $concerts = Concert::with('singer')->orderBy('date', 'asc')->get(); // 'asc' for ascending order
 
-  // Map the concerts to match the $concertCard structure
-  $concertCard = $concerts->map(function ($concert) {
-    return [ // Adjust this dynamically if needed
-      'concertName' => $concert->name,
-      'singer' => $concert->singer->name, // Assuming relationship exists
-      'date' => $concert->date,
-      'location' => $concert->location,
-      'concertImage' => asset($concert->image_path),
-    ];
-  });
-
-  // Return view with concert cards
-  return view('concerts', ['concertCard' => $concertCard]);
+  return view('concerts', compact('concerts'));
 });
+
 
 Route::get('/singers', function () {
   // Fetch all singers
   $singers = Singer::all();
 
-  // Map singers to match the desired structure
-  $singerCards = $singers->map(function ($singer) {
-    return [
-      'name' => $singer->name,
-      'profile' => $singer->profile,
-      'singerImage' => asset('storage/' . $singer->image_path),
-    ];
-  });
-
-  // Return view with singer data
-  return view('singers', ['singerCards' => $singerCards]);
+  return view('singers', compact('singers'));
 });
 
 Route::get('/login', function () {
@@ -70,21 +53,13 @@ Route::prefix('admin')->group(function () {
     return view('admin.dashboard');
   });
 
-  Route::get('/users', function () {
-    return view('admin.users');
-  });
+  Route::resource('/users', usersController::class);
 
-  Route::get('/concerts', function () {
-    return view('admin.concerts');
-  });
+  Route::resource('/concerts', concertsController::class);
 
   Route::resource('/singers', singersController::class);
 
-  Route::get('/tickets', function () {
-    return view('admin.tickets');
-  });
+  Route::resource('/tickets', ticketController::class);
 
-  Route::get('/bookings', function () {
-    return view('admin.bookings');
-  });
+  Route::resource('/bookings', bookingController::class);
 });
