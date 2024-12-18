@@ -5,6 +5,7 @@
   <section class="bg-white">
     <div class="p-4 sm:ml-64">
       <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+        @include('admin.components.alerts')
         <div class="grid grid-cols-1 gap-4 mb-4">
           <div class="flex items-center justify-start">
             <div class="relative w-full overflow-x-auto">
@@ -129,7 +130,7 @@
 
             {{-- TODO: Uncomment --}}
             {{-- Delete modal start --}}
-            {{-- <div id="deleteModal" tabindex="-1"
+            <div id="deleteModal" tabindex="-1"
                  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
               <div class="relative p-4 w-full max-w-md max-h-full">
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -165,7 +166,7 @@
                   </div>
                 </div>
               </div>
-            </div> --}}
+            </div>
             {{-- Delete modal end --}}
 
           </div>

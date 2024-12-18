@@ -5,6 +5,7 @@
   <section class="bg-white">
     <div class="p-4 sm:ml-64">
       <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+        @include('admin.components.alerts')
         <div class="grid grid-cols-1 gap-4 mb-4">
           <div class="flex items-center justify-start">
             <div class="relative w-full overflow-x-auto">
