@@ -5,14 +5,27 @@ use App\Http\Controllers\singersController;
 use App\Http\Controllers\ticketController;
 use App\Http\Controllers\bookingController;
 use App\Http\Controllers\usersController;
+
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Concert;
 use App\Models\Singer;
 
-
 Route::get('/', function () {
-  return view('home');
+  // Fetch the 3 nearest concerts with singer data, ordered by date
+  $nearby = Concert::with('singer')
+    ->where('date', '>=', now())
+    ->orderBy('date', 'asc')
+    ->take(3)
+    ->get();
+
+  $upcoming = Concert::with('singer')
+    ->where('date', '>=', now())
+    ->orderBy('date', 'desc')
+    ->take(3)
+    ->get();
+
+  return view('home', compact('nearby', 'upcoming'));
 });
 
 Route::get('/concerts', function () {

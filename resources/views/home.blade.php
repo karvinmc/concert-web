@@ -195,7 +195,36 @@
           Explore nearby concerts and events here.
         </p>
       </div>
-      <swiper-nearby />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Loop through items to create a card for each concert -->
+        @foreach ($nearby as $concert)
+          <div class="bg-white border shadow-md border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+            <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg">
+              <img class="rounded-t-lg w-full h-full object-cover" src="{{ 'storage/' . $concert->image_path }}" alt="{{ $concert->name }}">
+            </div>
+            <div class="p-5">
+              <a href="#">
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {{ $concert->name }}
+                </h5>
+              </a>
+              <p class="mb-3 text-md font-normal text-gray-700 dark:text-gray-400">
+                {{ $concert->singer->name }}
+              </p>
+              <p class="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+                {{ $concert->date }}, {{ $concert->location }}
+              </p>
+              <p class="mb-3 text-md font-semibold text-gray-700 dark:text-gray-400">
+                ${{ $concert->default_price }}
+              </p>
+              <a href="{{ url('concert-detail/' . $concert->id) }}"
+                 class="inline-flex justify-center w-full px-3 py-3 text-sm font-medium text-center text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                Book Now!
+              </a>
+            </div>
+          </div>
+        @endforeach
+      </div>
     </div>
   </section>
 
@@ -253,11 +282,32 @@
           The best concerts will be held soon!
         </p>
       </div>
-      <swiper-upcoming />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Loop through items to create a card for each concert -->
+        @foreach ($upcoming as $concert)
+          <div class="bg-white border shadow-md border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+            <div class="relative h-[350px] w-full overflow-hidden rounded-t-lg">
+              <img class="rounded-t-lg w-full h-full object-cover" src="{{ 'storage/' . $concert->image_path }}" alt="{{ $concert->name }}">
+            </div>
+            <div class="p-5">
+              <a href="#">
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {{ $concert->name }}
+                </h5>
+              </a>
+              <p class="mb-3 text-md font-normal text-gray-700 dark:text-gray-400">
+                {{ $concert->singer->name }}
+              </p>
+              <p class="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+                {{ $concert->date }}, {{ $concert->location }}
+              </p>
+            </div>
+          </div>
+        @endforeach
+      </div>
     </div>
     </div>
   </section>
-
   <script>
     window.assetUrl = '{{ asset('images/singers/taylor_swift.jpg') }}';
     window.pageUrl = '{{ url('concert_detail') }}'

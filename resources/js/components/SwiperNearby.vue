@@ -11,7 +11,7 @@
       <div class="p-5">
         <a href="#">
           <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {{ item.title }}
+            {{ concert.name }}
           </h5>
         </a>
         <p class="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
@@ -44,29 +44,28 @@ import 'swiper/css/pagination';
 
 export default {
   components: { Swiper, SwiperSlide },
-  setup() {
+  props: {
+    concerts: {
+      type: Array,
+      required: true,
+    },
+  },
+  setup(props) {
     const onSwiper = (swiper) => {
       console.log(swiper);
     };
+
     const onSlideChange = () => {
       console.log('slide change');
     };
-
-    // Example data for slides
-    const items = [
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location', price: 'Price' },
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location', price: 'Price' },
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location', price: 'Price' },
-      { title: 'Taylor Swift', date: 'Date - Date', location: 'Location', price: 'Price' },
-    ];
 
     return {
       onSwiper,
       onSlideChange,
       modules: [Navigation, Pagination],
       assetUrl: window.assetUrl,
-      items,
-      pageUrl: window.pageUrl
+      pageUrl: window.pageUrl,
+      concerts: props.concerts, // Access concerts passed from Laravel
     };
   },
 };
